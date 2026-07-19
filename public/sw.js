@@ -1,5 +1,7 @@
-const CACHE = "cb2-lessons-23-24-v1";
-const CORE = ["/", "/manifest.webmanifest", "/icon-192.png", "/icon-512.png"];
+const CACHE = "cb2-lessons-23-24-v2";
+const HOME = new URL("./", self.registration.scope).href;
+const CORE = ["./", "manifest.webmanifest", "icon-192.png", "icon-512.png"]
+  .map((path) => new URL(path, self.registration.scope).href);
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(CORE)).then(() => self.skipWaiting()));
@@ -22,6 +24,6 @@ self.addEventListener("fetch", (event) => {
         caches.open(CACHE).then((cache) => cache.put(event.request, copy));
         return response;
       })
-      .catch(() => caches.match(event.request).then((cached) => cached || caches.match("/")))
+      .catch(() => caches.match(event.request).then((cached) => cached || caches.match(HOME)))
   );
 });

@@ -36,7 +36,7 @@ test("ships required PWA assets and educational content", async () => {
   assert.equal(parsed.display, "standalone");
   assert.equal(parsed.lang, "vi");
   assert.equal(parsed.icons.length, 2);
-  assert.match(worker, /cb2-lessons-23-24-v1/);
+  assert.match(worker, /cb2-lessons-23-24-v2/);
   assert.match(page, /我想学太极拳/);
   assert.match(page, /serviceWorker/);
   await access(new URL("public/icon-192.png", root));

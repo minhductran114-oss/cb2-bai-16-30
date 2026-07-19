@@ -201,7 +201,10 @@ export default function Home() {
       const saved = localStorage.getItem("cb2-pwa-progress");
       if (saved) setCompleted(JSON.parse(saved));
     }, 0);
-    if ("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js").catch(() => undefined);
+    if ("serviceWorker" in navigator) {
+      const serviceWorkerUrl = new URL("sw.js", window.location.href).href;
+      navigator.serviceWorker.register(serviceWorkerUrl).catch(() => undefined);
+    }
     return () => window.clearTimeout(restoreProgress);
   }, []);
 
