@@ -15,30 +15,38 @@ async function render() {
   );
 }
 
-test("server-renders the CB2 learning experience", async () => {
+test("server-renders the CB2 course hub", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
   const html = await response.text();
-  assert.match(html, /CB2 · Bài 23–24/);
-  assert.match(html, /学校里边儿有邮局吗/);
-  assert.match(html, /Tổng quan/);
+  assert.match(html, /Tài liệu học tiếng Trung/);
+  assert.match(html, /Lộ trình tiếng Trung CB2/);
+  assert.match(html, /Mỗi bài là một chặng/);
+  assert.match(html, /Bài 16/);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|Your site is taking shape/);
 });
 
 test("ships required PWA assets and educational content", async () => {
-  const [manifest, worker, page] = await Promise.all([
+  const [manifest, worker, page, lessonData, schema, lesson23, lesson24] = await Promise.all([
     readFile(new URL("public/manifest.webmanifest", root), "utf8"),
     readFile(new URL("public/sw.js", root), "utf8"),
     readFile(new URL("app/page.tsx", root), "utf8"),
+    readFile(new URL("app/lesson-data.ts", root), "utf8"),
+    readFile(new URL("content/schema.ts", root), "utf8"),
+    readFile(new URL("content/lessons/lesson-23.ts", root), "utf8"),
+    readFile(new URL("content/lessons/lesson-24.ts", root), "utf8"),
   ]);
   const parsed = JSON.parse(manifest);
   assert.equal(parsed.display, "standalone");
   assert.equal(parsed.lang, "vi");
   assert.equal(parsed.icons.length, 2);
-  assert.match(worker, /cb2-lessons-23-24-v2/);
-  assert.match(page, /我想学太极拳/);
+  assert.match(worker, /cb2-course-16-30-v1/);
+  assert.match(lessonData, /我想学太极拳/);
   assert.match(page, /serviceWorker/);
+  assert.match(schema, /LessonModule/);
+  assert.match(lesson23, /createLessonModule/);
+  assert.match(lesson24, /createLessonModule/);
   await access(new URL("public/icon-192.png", root));
   await access(new URL("public/icon-512.png", root));
   await access(new URL("public/og.png", root));

@@ -1,4 +1,4 @@
-const CACHE = "cb2-lessons-23-24-v2";
+const CACHE = "cb2-course-16-30-v1";
 const HOME = new URL("./", self.registration.scope).href;
 const CORE = ["./", "manifest.webmanifest", "icon-192.png", "icon-512.png"]
   .map((path) => new URL(path, self.registration.scope).href);

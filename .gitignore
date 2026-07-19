@@ -44,3 +44,8 @@ next-env.d.ts
 
 # local development logs
 /.dev-*.log
+/.dev*-*.log
+/.pages-preview*.log
+/.preview-*.log
+/.start-*.log
+*.tsbuildinfo

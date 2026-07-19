@@ -9,14 +9,14 @@ export async function generateMetadata(): Promise<Metadata> {
   const base = new URL(`${protocol}://${host}`);
   return {
     metadataBase: base,
-    title: "CB2 · Bài 23–24 | Tiếng Trung Mộc Mộc",
-    description: "PWA tương tác học Giáo trình Hán ngữ quyển 2: bài 23 và 24.",
+    title: "CB2 · Lộ trình Bài 16–30 | Tài liệu học tiếng Trung",
+    description: "PWA học tiếng Trung CB2 theo lộ trình Bài 16–30, có kho kiến thức, ôn tích lũy, checkpoint và sổ lỗi sai.",
     manifest: "/manifest.webmanifest",
     icons: { icon: "/icon-192.png", apple: "/icon-192.png" },
     openGraph: {
-      title: "CB2 · Bài 23–24",
-      description: "Học để dùng được: hội thoại, bản đồ, ngữ pháp, luyện tập và viết chữ.",
-      images: [{ url: "/og.png", width: 1794, height: 947, alt: "CB2 bài 23–24: Học để dùng được" }],
+      title: "CB2 · Lộ trình Bài 16–30",
+      description: "Học theo một lộ trình liên tục với kho kiến thức, ôn tích lũy và sổ lỗi sai.",
+      images: [{ url: "/og.png", width: 1734, height: 907, alt: "Tài liệu học tiếng Trung CB2 Bài 16–30" }],
       type: "website",
     },
     twitter: { card: "summary_large_image", images: ["/og.png"] },

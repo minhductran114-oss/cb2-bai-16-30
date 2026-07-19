@@ -1,5 +1,5 @@
 {
-  "name": "cb2-pwa-lesson-23-24",
+  "name": "cb2-pwa-lessons-16-30",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -9,6 +9,7 @@
     "dev": "vinext dev",
     "build": "vinext build",
     "build:pages": "vite build --config vite.github.config.ts",
+    "preview:pages": "vite preview --config vite.github.config.ts --host 127.0.0.1 --port 4173",
     "start": "vinext start",
     "test": "pnpm run build && node --test tests/rendered-html.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern github-pages-dist --ignore-pattern .next",
@@ -16,6 +17,8 @@
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",
+    "hanzi-writer": "^3.7.3",
+    "lxgw-wenkai-lite-webfont": "^1.7.0",
     "next": "16.2.6",
     "react": "19.2.6",
     "react-dom": "19.2.6"

@@ -1,8 +1,8 @@
 {
-  "name": "CB2 · Tiếng Trung Mộc Mộc",
-  "short_name": "CB2 Mộc Mộc",
-  "description": "Học tương tác bài 23–24, Giáo trình Hán ngữ quyển 2.",
-  "start_url": ".",
+  "name": "Tài liệu học tiếng Trung · CB2 Bài 16–30",
+  "short_name": "CB2 Bài 16–30",
+  "description": "Lộ trình CB2 với kho kiến thức, ôn tích lũy, checkpoint và sổ lỗi sai.",
+  "start_url": "./#/lo-trinh",
   "scope": ".",
   "display": "standalone",
   "background_color": "#f2eee5",
