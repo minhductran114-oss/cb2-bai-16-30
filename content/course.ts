@@ -39,7 +39,11 @@ export const course: CourseDefinition = {
       pinyin: "Wǒ xiǎng xué tàijíquán",
       meaning: "Tôi muốn học Thái Cực Quyền",
     }),
-    lesson(25, "planned", "Bài 25", "25-27", "Sẽ bổ sung khi có nguồn bài giảng."),
+    lesson(25, "available", "Đánh giá cách hành động và tiến bộ", "25-27", "Pilot mới từ slide, giáo trình, HTML mẫu và nội dung thực hành mở rộng.", {
+      hanzi: "她学得很好",
+      pinyin: "Tā xué de hěn hǎo",
+      meaning: "Cô ấy học rất giỏi",
+    }),
     lesson(26, "planned", "Bài 26", "25-27", "Sẽ bổ sung khi có nguồn bài giảng."),
     lesson(27, "planned", "Bài 27", "25-27", "Sẽ bổ sung khi có nguồn bài giảng."),
     lesson(28, "planned", "Bài 28", "28-30", "Sẽ bổ sung khi có nguồn bài giảng."),
@@ -57,4 +61,3 @@ export const course: CourseDefinition = {
 export const availableLessonIds = course.lessons
   .filter((item) => item.status === "available")
   .map((item) => item.id);
-

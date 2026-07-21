@@ -1,5 +1,6 @@
 import type {
   Dialogue,
+  LessonExtension,
   GrammarPoint,
   Quiz,
   Triplet,
@@ -12,7 +13,7 @@ export const COURSE_LESSON_IDS = [
 ] as const;
 
 export type CourseLessonId = (typeof COURSE_LESSON_IDS)[number];
-export type AvailableLessonId = 23 | 24;
+export type AvailableLessonId = 23 | 24 | 25;
 export type LessonStatus = "available" | "draft" | "planned";
 export type CourseSurface = "course" | "knowledge" | "review" | "mistakes";
 export type KnowledgeKind = "vocabulary" | "grammar" | "hanzi";
@@ -50,7 +51,7 @@ export type LessonModule = {
   reinforces: KnowledgeId[];
   preparesFor: KnowledgeId[];
   memory: Triplet;
-  visual: "map" | "ability";
+  visual: "map" | "ability" | "progress";
   content: {
     vocabulary: VocabEntry[];
     glossary: Triplet[];
@@ -66,6 +67,7 @@ export type LessonModule = {
     dictationTask: Triplet;
     translationTask: Triplet & { hint: string };
     writingCharacters: WritingCharacter[];
+    extension: LessonExtension;
   };
   knowledge: LessonKnowledgeLink[];
 };
@@ -126,4 +128,3 @@ export type CourseState = {
   reviews: Record<string, ReviewRecord>;
   mistakes: MistakeRecord[];
 };
-

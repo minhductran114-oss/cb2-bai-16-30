@@ -8,12 +8,28 @@ import type {
   VocabEntry,
   WritingCharacter,
 } from "./lesson-types";
+import {
+  lesson25Dialogues,
+  lesson25DictationTask,
+  lesson25Glossary,
+  lesson25Grammar,
+  lesson25Meta,
+  lesson25OrderTask,
+  lesson25Quizzes,
+  lesson25TranslationTask,
+  lesson25Vocabulary,
+  lesson25WritingCharacters,
+} from "./lesson25-data";
+import { lessonExtensions } from "./lesson-extensions";
+
+export { lessonExtensions };
 
 export const sections: Array<{ id: SectionId; label: string; icon: string }> = [
   { id: "overview", label: "Tổng quan", icon: "◎" },
   { id: "dialogue", label: "Hội thoại", icon: "话" },
   { id: "vocab", label: "Từ vựng", icon: "字" },
   { id: "grammar", label: "Ngữ pháp", icon: "法" },
+  { id: "extension", label: "Mở rộng", icon: "拓" },
   { id: "practice", label: "Luyện tập", icon: "练" },
   { id: "writing", label: "Viết chữ", icon: "写" },
 ];
@@ -41,6 +57,7 @@ export const lessonMeta: Record<LessonId, Triplet & { canDo: string[] }> = {
       "Mô tả triệu chứng và xin phép nghỉ",
     ],
   },
+  25: lesson25Meta,
 };
 
 export const focusVocabulary: Record<LessonId, VocabEntry[]> = {
@@ -390,6 +407,7 @@ export const focusVocabulary: Record<LessonId, VocabEntry[]> = {
       strokeChars: ["感", "冒"],
     },
   ],
+  25: lesson25Vocabulary,
 };
 
 export const glossary: Record<LessonId, Triplet[]> = {
@@ -406,6 +424,7 @@ export const glossary: Record<LessonId, Triplet[]> = {
     ["头疼", "tóuténg", "đau đầu"], ["发烧", "fāshāo", "sốt"], ["可能", "kěnéng", "có lẽ"], ["咳嗽", "késou", "ho"],
     ["了", "le", "rồi; trạng thái mới"], ["看病", "kànbìng", "khám bệnh"], ["一三五", "yī sān wǔ", "thứ Hai, Tư, Sáu"], ["不舒服", "bù shūfu", "khó chịu trong người"],
   ].map(([hanzi, pinyin, meaning]) => ({ hanzi, pinyin, meaning })),
+  25: lesson25Glossary,
 };
 
 export const dialogues: Record<LessonId, Dialogue[]> = {
@@ -474,6 +493,7 @@ export const dialogues: Record<LessonId, Dialogue[]> = {
       ],
     },
   ],
+  25: lesson25Dialogues,
 };
 
 export const grammar: Record<LessonId, GrammarPoint[]> = {
@@ -566,6 +586,7 @@ export const grammar: Record<LessonId, GrammarPoint[]> = {
       ],
     },
   ],
+  25: lesson25Grammar,
 };
 
 export const quizzes: Record<LessonId, Quiz[]> = {
@@ -653,21 +674,25 @@ export const quizzes: Record<LessonId, Quiz[]> = {
       feedback: "Nêu triệu chứng + 想请…假 là cách xin nghỉ rõ ràng và lịch sự.",
     },
   ],
+  25: lesson25Quizzes,
 };
 
 export const orderTasks: Record<LessonId, { tokens: string[]; answer: string; translation: string; pinyin: string }> = {
   23: { tokens: ["一直", "从这儿", "往东", "走"], answer: "从这儿一直往东走", translation: "Từ đây cứ đi thẳng về phía đông.", pinyin: "Cóng zhèr yìzhí wǎng dōng zǒu." },
   24: { tokens: ["一遍", "再", "您", "能不能", "说"], answer: "您能不能再说一遍", translation: "Thầy/cô có thể nói lại một lượt không?", pinyin: "Nín néng bu néng zài shuō yí biàn?" },
+  25: lesson25OrderTask,
 };
 
 export const dictationTasks: Record<LessonId, Triplet> = {
   23: { hanzi: "到红绿灯那儿往左拐。", pinyin: "Dào hónglǜdēng nàr wǎng zuǒ guǎi.", meaning: "Đến đèn giao thông thì rẽ trái." },
   24: { hanzi: "我有点儿发烧，今天不能来上课。", pinyin: "Wǒ yǒudiǎnr fāshāo, jīntiān bù néng lái shàngkè.", meaning: "Tôi hơi sốt, hôm nay không thể đến lớp." },
+  25: lesson25DictationTask,
 };
 
 export const translationTasks: Record<LessonId, Triplet & { hint: string }> = {
   23: { hanzi: "博物馆离这儿远吗？", pinyin: "Bówùguǎn lí zhèr yuǎn ma?", meaning: "Bảo tàng cách đây xa không?", hint: "A + 离 + B + tính từ + 吗？" },
   24: { hanzi: "您能不能再说一遍？", pinyin: "Nín néng bu néng zài shuō yí biàn?", meaning: "Thầy/cô có thể nói lại một lượt không?", hint: "能不能 + 再 + động từ + 一遍" },
+  25: lesson25TranslationTask,
 };
 
 export const writingCharacters: Record<LessonId, WritingCharacter[]> = {
@@ -691,5 +716,5 @@ export const writingCharacters: Record<LessonId, WritingCharacter[]> = {
     { hanzi: "请", pinyin: "qǐng", meaning: "xin, mời", structure: "Bộ 讠 trái trước, 青 phải sau.", cue: "Lời nói xanh dịu và lễ phép." },
     { hanzi: "病", pinyin: "bìng", meaning: "bệnh", structure: "Khung 疒 ngoài trước, phần trong sau.", cue: "Người nằm dưới mái bệnh." },
   ],
+  25: lesson25WritingCharacters,
 };
-

@@ -5,6 +5,7 @@ import {
   glossary,
   grammar,
   lessonMeta,
+  lessonExtensions,
   orderTasks,
   quizzes,
   translationTasks,
@@ -76,6 +77,7 @@ export function createLessonModule(meta: LessonModuleMeta): LessonModule {
       dictationTask: dictationTasks[id],
       translationTask: translationTasks[id],
       writingCharacters: writingCharacters[id],
+      extension: lessonExtensions[id],
     },
     ...meta,
   };
@@ -84,4 +86,3 @@ export function createLessonModule(meta: LessonModuleMeta): LessonModule {
 export function knowledgeId(value: KnowledgeId) {
   return value;
 }
-

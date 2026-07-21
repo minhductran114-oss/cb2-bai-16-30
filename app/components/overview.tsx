@@ -30,7 +30,7 @@ export function Overview({
         <button className="primary" onClick={() => go("dialogue")}>Bắt đầu bằng hội thoại <span>→</span></button>
       </div>
       <div className={`visual-panel visual-${lesson.id}`}>
-        {lesson.visual === "map" ? <MiniMap /> : <AbilityWheel />}
+        {lesson.visual === "map" ? <MiniMap /> : lesson.visual === "ability" ? <AbilityWheel /> : <ProgressPath />}
       </div>
     </section>
 
@@ -51,7 +51,8 @@ export function Overview({
       <button onClick={() => go("dialogue")}><span>01</span><strong>Nghe tình huống</strong><small>Hội thoại mới, vai nói rõ ràng</small></button>
       <button onClick={() => go("vocab")}><span>02</span><strong>Nhớ bằng hình</strong><small>Cấu tạo, mẹo nhớ, cụm từ</small></button>
       <button onClick={() => go("grammar")}><span>03</span><strong>So sánh cấu trúc</strong><small>Đúng – sai theo ngữ cảnh</small></button>
-      <button onClick={() => go("practice")}><span>04</span><strong>Tự tạo câu</strong><small>Nghe, xếp, gõ và dịch</small></button>
+      <button onClick={() => go("extension")}><span>04</span><strong>Kết nối & mở rộng</strong><small>Dùng thật, nối bài cũ</small></button>
+      <button onClick={() => go("practice")}><span>05</span><strong>Tự tạo câu</strong><small>Nghe, xếp, gõ và dịch</small></button>
     </section>
   </div>;
 }
@@ -75,5 +76,16 @@ function AbilityWheel() {
     <div className="wheel-node permit"><b>可以</b><span>kěyǐ</span><small>được cho phép</small></div>
     <div className="wheel-node desire"><b>想</b><span>xiǎng</span><small>mong muốn</small></div>
     <div className="tai-chi" aria-hidden="true">◐</div>
+  </div>;
+}
+
+function ProgressPath() {
+  return <div className="progress-path" role="img" aria-label="Sơ đồ từ hành động qua 得 đến phần đánh giá mức độ">
+    <div className="progress-node action"><span>1</span><b className="hanzi-font">说</b><small>shuō · nói</small></div>
+    <i>→</i>
+    <div className="progress-node measure"><span>2</span><b className="hanzi-font">得</b><small>de · trạm đo</small></div>
+    <i>→</i>
+    <div className="progress-node quality"><span>3</span><b className="hanzi-font">很流利</b><small>hěn liúlì · rất lưu loát</small></div>
+    <div className="progress-caption"><b>会说</b><span>biết nói</span><strong>≠</strong><b>说得好</b><span>nói tốt</span></div>
   </div>;
 }

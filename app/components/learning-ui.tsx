@@ -50,7 +50,7 @@ export function AudioSettings({ audio }: { audio: AudioController }) {
         <span>Giọng đọc</span>
         <select value={audio.voiceName} onChange={(event) => audio.setVoiceName(event.target.value)}>
           {!audio.voices.length && <option value="">Giọng zh-CN mặc định</option>}
-          {audio.voices.map((voice) => <option value={voice.name} key={`${voice.name}-${voice.lang}`}>{voice.name} · {voice.lang}</option>)}
+          {audio.voices.map((voice) => <option value={voice.name} key={`${voice.name}-${voice.lang}`}>{voice.name} · {voice.lang}{/xiaoxiao|晓晓/i.test(voice.name) ? " · ưu tiên Xiaoxiao" : ""}</option>)}
         </select>
       </label>
       <label>
@@ -64,4 +64,3 @@ export function AudioSettings({ audio }: { audio: AudioController }) {
     </div>
   </section>;
 }
-

@@ -6,9 +6,9 @@ Pages.
 
 ## Trạng thái nội dung
 
-- Bài 23–24: đã có module học đầy đủ và được giữ từ PWA mẫu.
+- Bài 23–25: cụm pilot đã có module học đầy đủ; Bài 25 bổ sung kiến thức mở rộng, hội thoại tự biên soạn, luyện tập ứng dụng và liên kết ngược về Bài 23–24.
 - Bài 16–22: đã có vị trí trong lộ trình, đang chờ chuẩn hóa nội dung nguồn.
-- Bài 25–30: sẽ bổ sung khi có bài giảng mới.
+- Bài 26–30: sẽ bổ sung khi có bài giảng mới.
 
 Ứng dụng hiện có lộ trình khóa học, kho kiến thức, ôn tích lũy, sổ lỗi sai và
 các mốc checkpoint. Tiến độ học được lưu cục bộ trên từng thiết bị.

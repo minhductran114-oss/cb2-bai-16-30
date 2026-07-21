@@ -28,26 +28,32 @@ test("server-renders the CB2 course hub", async () => {
 });
 
 test("ships required PWA assets and educational content", async () => {
-  const [manifest, worker, page, lessonData, schema, lesson23, lesson24] = await Promise.all([
+  const [manifest, worker, page, lessonData, lesson25Data, schema, lesson23, lesson24, lesson25] = await Promise.all([
     readFile(new URL("public/manifest.webmanifest", root), "utf8"),
     readFile(new URL("public/sw.js", root), "utf8"),
     readFile(new URL("app/page.tsx", root), "utf8"),
     readFile(new URL("app/lesson-data.ts", root), "utf8"),
+    readFile(new URL("app/lesson25-data.ts", root), "utf8"),
     readFile(new URL("content/schema.ts", root), "utf8"),
     readFile(new URL("content/lessons/lesson-23.ts", root), "utf8"),
     readFile(new URL("content/lessons/lesson-24.ts", root), "utf8"),
+    readFile(new URL("content/lessons/lesson-25.ts", root), "utf8"),
   ]);
   const parsed = JSON.parse(manifest);
   assert.equal(parsed.display, "standalone");
   assert.equal(parsed.lang, "vi");
   assert.equal(parsed.icons.length, 2);
-  assert.match(worker, /cb2-course-16-30-v1/);
+  assert.match(worker, /cb2-course-16-30-v2-pilot-23-25/);
   assert.match(lessonData, /我想学太极拳/);
+  assert.match(lesson25Data, /她学得很好/);
+  assert.match(lesson25Data, /lesson25Vocabulary/);
   assert.match(page, /serviceWorker/);
   assert.match(schema, /LessonModule/);
   assert.match(lesson23, /createLessonModule/);
   assert.match(lesson24, /createLessonModule/);
+  assert.match(lesson25, /createLessonModule/);
   await access(new URL("public/icon-192.png", root));
   await access(new URL("public/icon-512.png", root));
   await access(new URL("public/og.png", root));
+  await access(new URL("public/og-pilot-23-25.png", root));
 });

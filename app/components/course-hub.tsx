@@ -7,7 +7,7 @@ const statusLabel = { available: "Học ngay", draft: "Đang chuyển đổi", p
 
 export function CourseHub({ state, navigate }: { state: CourseState; navigate: (hash: string) => void }) {
   const completed = state.completedSections.length;
-  const availableSections = 12;
+  const availableSections = 21;
   const percentage = Math.min(100, Math.round(completed / availableSections * 100));
 
   return <main className="course-surface">
@@ -16,12 +16,12 @@ export function CourseHub({ state, navigate }: { state: CourseState; navigate: (
         <span className="course-kicker">MỘT LỘ TRÌNH · MỘT KHO KIẾN THỨC</span>
         <h1>{course.title}</h1>
         <p>{course.description}</p>
-        <div className="course-actions"><button className="primary" onClick={() => navigate("#/bai/23/overview")}>Tiếp tục với Bài 23</button><button onClick={() => navigate("#/on-tap")}>Ôn kiến thức đến hạn</button></div>
+        <div className="course-actions"><button className="primary" onClick={() => navigate("#/bai/25/overview")}>Khám phá pilot Bài 25</button><button onClick={() => navigate("#/on-tap")}>Ôn kiến thức đến hạn</button></div>
       </div>
       <div className="course-progress-card">
         <span>Tiến độ nội dung hiện có</span><b>{percentage}%</b>
         <div className="progress-track"><span style={{ width: `${percentage}%` }} /></div>
-        <small>{completed}/{availableSections} phần của Bài 23–24 đã hoàn thành. Dữ liệu được lưu trên thiết bị này.</small>
+        <small>{completed}/{availableSections} phần của cụm pilot Bài 23–25 đã hoàn thành. Dữ liệu được lưu trên thiết bị này.</small>
       </div>
     </section>
 
@@ -30,7 +30,7 @@ export function CourseHub({ state, navigate }: { state: CourseState; navigate: (
     </section>
 
     <section className="roadmap-section">
-      <div className="surface-heading"><div><span className="course-kicker">LỘ TRÌNH 16–30</span><h2>Mỗi bài là một chặng, không phải một file rời</h2></div><p>Bài 23–24 đã sẵn sàng. Bài 16–22 đang chờ chuyển nội dung nguồn sang cùng khuôn dữ liệu.</p></div>
+      <div className="surface-heading"><div><span className="course-kicker">LỘ TRÌNH 16–30</span><h2>Mỗi bài là một chặng, không phải một file rời</h2></div><p>Cụm pilot Bài 23–25 đã sẵn sàng, gồm nội dung nguồn, kiến thức mở rộng, ôn liên bài và nhiệm vụ thực tế.</p></div>
       <div className="lesson-roadmap">
         {course.lessons.map((item) => <article key={item.id} className={`lesson-roadmap-card status-${item.status}`}>
           <div className="lesson-number"><span>Bài</span><b>{item.id}</b></div>

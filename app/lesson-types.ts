@@ -1,10 +1,11 @@
-export type LessonId = 23 | 24;
+export type LessonId = 23 | 24 | 25;
 
 export type SectionId =
   | "overview"
   | "dialogue"
   | "vocab"
   | "grammar"
+  | "extension"
   | "practice"
   | "writing";
 
@@ -55,3 +56,22 @@ export type WritingCharacter = Triplet & {
   cue: string;
 };
 
+export type ExtensionTopic = {
+  eyebrow: string;
+  title: string;
+  explanation: string;
+  examples: Triplet[];
+  practicalTip: string;
+};
+
+export type LessonExtension = {
+  bridgeTitle: string;
+  bridgeSummary: string;
+  priorKnowledge: Triplet[];
+  topics: ExtensionTopic[];
+  fieldMission: {
+    title: string;
+    prompt: string;
+    checklist: string[];
+  };
+};

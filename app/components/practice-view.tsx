@@ -124,7 +124,9 @@ function RoleplayMission({ lesson }: { lesson: AvailableLessonId }) {
   const [done, setDone] = useState(false);
   const content = lesson === 23
     ? { title: "Bạn lạc ở cổng nam", prompt: "Hỏi một người qua đường: bảo tàng ở đâu, cách đây bao xa, đi thế nào; sau đó nói lại lộ trình để xác nhận.", frames: ["劳驾，我打听一下儿……", "……离这儿有多远？", "怎么走？", "我确认一下：……对吗？"] }
-    : { title: "Bạn bị sốt trước giờ học", prompt: "Gọi cho bạn học: mô tả hai triệu chứng, nói vì sao không thể đến lớp và nhờ bạn xin nghỉ giúp.", frames: ["我今天有点儿……", "我……，还……", "所以我不能……", "你能不能帮我……？"] };
+    : lesson === 24
+      ? { title: "Bạn bị sốt trước giờ học", prompt: "Gọi cho bạn học: mô tả hai triệu chứng, nói vì sao không thể đến lớp và nhờ bạn xin nghỉ giúp.", frames: ["我今天有点儿……", "我……，还……", "所以我不能……", "你能不能帮我……？"] }
+      : { title: "Phản hồi cho một bạn học", prompt: "Nhận xét một kỹ năng của bạn học: khen hai điểm cụ thể, hỏi bạn ấy tự đánh giá thế nào và đề xuất một bước luyện tiếp theo.", frames: ["你……得很……", "我觉得你的……", "你觉得……怎么样？", "接下来可以……"] };
   return <section className="roleplay-mission panel">
     <div><span className="panel-kicker">NHIỆM VỤ NÓI 60 GIÂY</span><h2>{content.title}</h2><p>{content.prompt}</p></div>
     <div className="roleplay-frames">{content.frames.map((frame) => <span className="hanzi-font" key={frame}>{frame}</span>)}</div>

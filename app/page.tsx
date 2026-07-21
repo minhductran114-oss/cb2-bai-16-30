@@ -17,7 +17,7 @@ type Route =
   | { kind: CourseSurface }
   | { kind: "lesson"; lessonId: AvailableLessonId; section: SectionId };
 
-const validSections: SectionId[] = ["overview", "dialogue", "vocab", "grammar", "practice", "writing"];
+const validSections: SectionId[] = ["overview", "dialogue", "vocab", "grammar", "extension", "practice", "writing"];
 
 function parseRoute(hash: string): Route {
   const path = hash.replace(/^#\/?/, "");
