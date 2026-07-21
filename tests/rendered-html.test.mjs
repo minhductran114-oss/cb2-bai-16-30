@@ -43,11 +43,17 @@ test("ships required PWA assets and educational content", async () => {
   assert.equal(parsed.display, "standalone");
   assert.equal(parsed.lang, "vi");
   assert.equal(parsed.icons.length, 2);
-  assert.match(worker, /cb2-course-16-30-v2-pilot-23-25/);
+  assert.match(worker, /cb2-course-16-30-v3-safe-updates/);
+  assert.match(worker, /request\.mode === "navigate"/);
+  assert.match(worker, /cache: "no-store"/);
+  assert.match(worker, /response\.ok/);
   assert.match(lessonData, /我想学太极拳/);
   assert.match(lesson25Data, /她学得很好/);
   assert.match(lesson25Data, /lesson25Vocabulary/);
   assert.match(page, /serviceWorker/);
+  assert.match(page, /updateViaCache: "none"/);
+  assert.match(page, /Failed to fetch dynamically imported module/);
+  assert.match(page, /Cập nhật và tải lại/);
   assert.match(schema, /LessonModule/);
   assert.match(lesson23, /createLessonModule/);
   assert.match(lesson24, /createLessonModule/);

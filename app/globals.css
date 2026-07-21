@@ -598,6 +598,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .loading-screen { min-height: 75vh; display: grid; place-items: center; align-content: center; padding: 40px; text-align: center; }
 .loading-screen > span { color: var(--jade); font-size: 5rem; }
 .loading-screen h1 { margin: 0; }
+.loading-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 8px; }
 .back-to-course { width: 100%; border-color: var(--line); color: var(--muted); }
 
 @media (max-width: 900px) {
